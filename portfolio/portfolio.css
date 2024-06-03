@@ -1,0 +1,347 @@
+html {
+  font-family: "Zen Maru Gothic", serif;
+  /*font-family: "Shadows Into Light", cursive;*/
+  font-weight: 500;
+  font-style: normal;
+}
+
+.pop { /*ヘッダーの中のロゴ*/
+  font-family: "Shadows Into Light", cursive;
+}
+
+header {
+  padding: 27px 0;/*ヘッダーの余白縦27横0*/
+
+}
+
+.container {/*ヘッダーの中の設定*/
+  width: 90%;/*横幅の90％で表示*/
+  max-width: 1120px;/*↑より大きかったら1120で留める*/
+  margin: 0 auto;/*header部分を真ん中に*/
+  position: relative;/*#hero::before の positionとセット*/
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;/*いい感じに右と左に散らしてくれる:/
+  flex-wrap: wrap;/*縦並びにならないといけないくらい横幅が狭くなった場合に改行してくれる*/
+  align-items: center;/*文字を中央に*/
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.04em;/*文字の感覚を狭く*/
+}
+
+.logo span { /*logoクラスの中にあるspanのみ適応*/
+  color: #80BA4A;
+}
+
+.header_menu li {/*liだけに適応*/
+  margin-left: 40px;
+}
+
+.header_menu li a {/*liの中にあるaだけに適応*/
+  transition: .3s;
+}
+
+.header_menu li a:hover {/*aにカーソルを置いたときに適応される*/
+  color: #80BA4A;
+  transition: .3s;/*0.3秒にする*/
+}
+
+@media only screen and (max-width: 768px) {
+  header .container {
+    justify-content: center;
+  }
+  .header_menu li { /*liだけに適応*/
+    margin: 20px 16px 0 ;/*上に20px空白　横は16px(左右) 下は0*/
+  }
+
+}
+
+/*main*/
+#hero {
+  background-image: url("./pik/sakura.png");
+  background-position: center;/*上下中央に揃える*/
+  background-size: cover;/*画像を全体に表示*/
+  height: 540px;
+  border-radius: 30px;/*角に丸みを*/
+  display: flex;
+  align-items: center;/*文字を中央に*/
+  margin-bottom: 90px;/*次のセクションとの間をあけたい*/
+  overflow: hidden;/*はみ出たところはカット*/
+}
+
+#hero::before {/*透かし*/
+  content: '';
+  width: 100%;/*擬似要素の幅*/
+  height: 100%;
+  background-color: #000000;
+  position: absolute;/*全体に表示*/
+  top: 0;
+  left: 0;
+  opacity: 0.2;/*20%透明に*/
+  z-index: 1
+}
+
+.hero_inner {
+  z-index: 2;/*↑より文字を上に。1<2*/
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
+}
+
+.hero_inner p {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.hero_inner h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;/*少し上にしたい*/
+}
+
+@media only screen and (max-width: 768px) {
+  #hero {
+    height: 460px;
+  }
+  .hero_inner p {
+    font-size: 15px;
+  }
+  .hero_inner h1 {
+    font-size: 17px;
+  }
+}
+
+/*concept*/
+#Concept {
+  margin-bottom: 120px;/*conceptとserviceの間に余白を作る*/
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #80BA4A;
+  margin-bottom: 40px;/*conceptと本文の間に余白を作る*/
+}
+
+#concept h3{
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 60px;/*h3とpの間に余白をつける*/
+}
+
+.column-2 {/*横並び*/
+  width: 48%;/*右に写真を入れたいために、画面の48%に文字を収める*/
+}
+
+.text {
+  line-height: 2;/*行間をあける*/
+}
+
+.concept-img {
+  background-image: url("./pik/sakura.png");
+  background-position: center;
+  background-size: cover;
+  height: 340px;
+  border-radius: 20px;
+}
+
+.heding {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 200px;
+  font-weight: 700;
+  color: #80BA4A;
+  opacity: 0.1;/*半透明にする*/
+  position: absolute;/*hedingの親要素であるconceptのsectionタグにposition: relativeが含まれているためここでの記述は不要*/
+  top: 0;
+  right: 0;/*右に表示したいい*/
+  transform: translateY(-30%);/*もうすこし上に*/
+  z-index: -1;
+}
+
+@media only screen and (max-width: 768px) {
+  #concept h3{
+    font-size: 24px;
+    line-height: 1.5;
+  }
+  .column-2 {
+    width: 100%;
+  }
+  .text {
+    font-size: 15px;
+    line-height: 1.7;/*行間をあける*/
+  }
+  .concept-img {
+    margin-top: 30px;
+  }
+}
+
+/*service*/
+#Service {
+  margin-inline: 120px;
+}
+
+.Service_inner {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.column-40 {/*横並び*/
+ width: 40%;
+}
+
+.column-55 {/*横並び*/
+  width: 55%;
+}
+
+#Service img {/*写真丸める*/
+  border-radius: 20px;
+}
+
+#Service h3 {
+  font-size: 24px;
+  font-weight: 700;/*文字の太さ*/
+  margin-bottom: 24px;/*文字との間をあける*/
+}
+
+@media only screen and (max-width: 768px) {
+.column-40 {
+  width: 100%;/*縦並びに*/
+  margin-bottom: 30px;/*少し下に余白をつける*/
+ }
+ 
+ .column-55 {
+   width: 100%;
+ }
+ #Service h3 {
+  font-size: 17px;
+}
+}
+
+/*Company*/
+#Company {
+  margin-bottom: 120px;
+}
+
+#Company dl {
+  max-width: 900px;
+  margin: 0 auto;
+  width:90%;
+  border: 1px solid #666666;
+  padding:3%;
+  box-sizing: border-box;
+  background-color:#fafafa;
+  border-radius: 30px;
+  
+}
+
+#Company .row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24px 0;
+  align-items: flex-start;
+}
+
+#Conpany dt, #Company dd {
+  display: inline-block;
+  border-bottom: solid 1px #D2ECBA;
+  padding-bottom: 4px;
+
+}
+#Company dt {
+  font-weight: 500;
+  margin-right: 20px; 
+  float: left;
+  width:25%;
+  padding:2% 0;
+}
+
+#Company dd {
+  display: inline-block;
+  margin-top: -8px;
+  vertical-align: top;
+  padding:2% 0;
+}
+
+dl dt:first-child{
+  border-top:none;
+}
+
+dl dt:first-child + dd{
+  border-top:none;
+}
+
+@media only screen and (max-width: 768px) {
+  #Company dl {
+    font-size: 13px;
+  }
+}
+
+/*ボトム*/
+.column-a {
+  background-image: url("./pik/sakura.png");
+  background-position: center;
+  background-size: cover;
+  width: 24%;
+  height: 270px;
+  border-radius: 20px;
+}
+
+.column-a {
+  background-image: url("./pik/sakura.png");
+  background-position: center;
+  background-size: cover;
+  width: 24%;
+  height: 270px;
+  border-radius: 20px;
+}
+
+.column-b {
+  background-image: url("./pik/sakura.png");
+  background-position: center;
+  background-size: cover;
+  width: 18%;
+  height: 270px;
+  border-radius: 20px;
+}
+
+.column-c {
+  background-image: url("./pik/sakura.png");
+  background-position: center;
+  background-size: cover;
+  width: 24%;
+  height: 270px;
+  border-radius: 20px;
+}
+
+.column-d {
+  background-image: url("./pik/sakura.png");
+  background-position: center;
+  background-size: cover;
+  width: 28%;
+  height: 270px;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .column-a, .column-b, .column-c, .column-d {
+    width: 48%;
+    height: 140px;
+    margin: 1%;
+  }
+}
+/*フッダー*/
+footer {
+  text-align: center;
+  margin: 90px 0;
+}
+
+.copyright {
+  font-size: 12px;
+  margin-top: 40px;
+}
