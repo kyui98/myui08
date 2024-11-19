@@ -859,9 +859,26 @@ SP
     border-left: calc(40vw - 40px) solid transparent;
     border-right: calc(40vw - 40px) solid transparent;
   }
-  #flow .description {
-    margin-left: 50px;
-  }
+#flow .description {
+ display: none;
+}
+#flow .description dt {
+ display: none;
+}
+/*
+丸数字を作成
+「position」を使用して、タイトルの左側に配置
+*/
+#flow .description dt span {
+ display: none;
+}
+#flow .description dd {
+  display: none;
+}
+#flow .description dd:last-child {
+  display: none;
+}
+
 
     /*-------------------------------------------
   Feature
