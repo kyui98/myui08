@@ -849,15 +849,15 @@ SP
   ここの数値を大きくする等して調整が可能です。
   */
   #flow .figure li {
-    width: calc(100vw - 80px);
+    width: calc(80vw - 60px);
   }
   /*
   図形（三角部分）の横幅を設定
   ※上記同様、図形のサイズにあわせて調整を行う
   */
   #flow .figure li::before {
-    border-left: calc(50vw - 40px) solid transparent;
-    border-right: calc(50vw - 40px) solid transparent;
+    border-left: calc(40vw - 40px) solid transparent;
+    border-right: calc(40vw - 40px) solid transparent;
   }
   #flow .description {
     margin-left: 50px;
