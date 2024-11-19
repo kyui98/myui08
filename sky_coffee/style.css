@@ -1,0 +1,254 @@
+@charset "UTF-8";
+
+html {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 100%;
+}
+
+body {
+  font-size: 18px;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+/*header*/
+.header {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 45px;
+  letter-spacing: 0.12em;
+}
+  
+/*main*/
+.main {
+  margin-bottom: 30px;
+}
+
+.main img {
+  width: 100%;
+  max-width: 1900px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.nav ul {
+  gap: 60px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/*concept*/
+.concept {
+  padding: 50px 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.concept .img { /*このセクションのような構図の時に、左右に配置している要素の縦横の比率を調整することに難しさを感じてしまいます*/
+  width: 50%;  /*サンプルサイトではconceptとblogの幅が揃ってますが、上手く調節できませんでした*/
+}
+
+.concept .desc {
+  width: 50%;
+  padding-right: 20px;
+  padding-left: 40px;
+  margin-bottom: 20px;
+}
+.content h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #87cefa;
+}
+
+.concept .sub-title {
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  margin-bottom: 30px;
+}
+
+.concept .title {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  color: #87cefa;
+  margin-bottom: 30px;
+}
+
+.concept .text p {
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+}
+
+@media screen and (max-width: 900px) {
+.concept .title {
+  font-size: 28px;
+}
+
+
+.container {
+  flex-direction: column;
+}
+
+.concept .img {
+  width: 100%;
+}
+
+.concept .desc {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.concept .desc {
+  margin-bottom: 10px;
+}
+}
+
+
+/*blog*/
+.blog {
+  max-width: 1110px;
+  margin: 50px auto 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title h2 {
+  color: #47afef;
+  font-size: 40px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  font-size: 16px;
+}
+
+.row img {
+  width: 100%;
+}  
+
+.row ul {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.row ul li {
+  width: 31.5%;
+  padding: 0 15px;
+}
+
+.row ul li h3 {
+  margin: 8px 0;
+}
+
+.row ul li p {
+  font-size: 12px;
+}
+
+.row img:hover {
+  background-color: #24a8bf;
+  transition: 0.3s;
+  opacity: 0.5;
+}
+
+.btn {
+  display: block;
+  width: 220px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1;
+  color: #24a8bf;
+  text-align: center;
+  margin: 0 auto;
+  padding: 18px 0;
+  transition: opacity 0.3s;
+  border: 1px solid #24a8bf;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  color: #b5d0eb;
+  border: solid 1px #b5d0eb;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 900px) {
+  .section-title h2 {   
+    font-size: 35px;
+  }
+
+  .blog {
+    margin-top: 10px;
+    margin: 10px auto 0;
+  }
+
+  .row ul {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .row ul li {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  
+  }
+
+  .row ul li img { 
+    width: 100%;
+  }
+
+  .row ul {
+    margin-bottom: 30px;
+  } 
+}
+
+/*footer*/
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  background-color: black;
+  color: #ffffff;
+  height: 150px;
+
+}
+
+.footer h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
+  padding: 40px 0;
+  font-size: 40px;
+  letter-spacing: 0.08em;
+}
+
+.footer p {
+  font-size: 10px;
+}

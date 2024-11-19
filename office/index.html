@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UtF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>office</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="top">
+        <div class="site_title">
+          <span>
+            <a href="">
+              <img src="./img/logo.svg" alt="logo">
+            </a>
+          </span>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="#news">NEWS</a>
+            </li>
+            <li>
+              <a href="#about">ABOUT</a>
+            </li>
+            <li>
+              <a href="#business">BUSINESS</a>
+            </li>
+            <li>
+              <a href="#company">COMPANY</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="top_contact">
+        <p>お問合せ</p>
+      </div>
+    </header>
+
+    <main>
+      <img src="./img/mainvisual.jpg" alt="main">
+    </main>
+
+    <section id="news" class="wrap">
+      <div class="container">
+        <div class="title">
+          <h2>NEWS</h2>
+          <p>ニュース</p>
+        </div>
+        <div class="group">
+          <div class="article"><!--1ブロックずつdivで囲んでしまいましたが、このように同じブロックが続くときにもっと簡素なまとめ方はあるのでしょうか。-->
+            <div class="article-header">
+              <h3>2021.01.01</h3>
+              <span>news</span>
+            </div>
+            <p>タイトルタイトルタイトル</p>
+          </div>
+          <div class="article">
+            <div class="article-header">
+              <h3>2021.01.01</h3>
+              <span>news</span>
+            </div>
+            <p>タイトルタイトルタイトル</p>
+          </div>
+          <div class="article">
+            <div class="article-header">
+              <h3>2021.01.01</h3>
+              <span>news</span>
+            </div>
+            <p>タイトルタイトルタイトル</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="img">
+        <img src="./img/about.jpg" alt="">
+      </div>
+      <div class="row">
+        <div class="title">
+          <h2>ABOUT</h2>
+          <p>私たちについて</p>
+        </div>
+        <div class="text">
+          <p>テキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキスト
+          <br>テキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキスト<br></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="business" class="business">
+      <div class="title">
+        <h2>BUSINESS</h2>
+        <p>事業内容</p>
+      </div>
+      <div class="column">
+        <div class="column_left">
+          <ul>
+            <li>
+              <p>-Web制作マーケティング</p>
+              <img src="./img/business01.jpg" alt="">
+            </li>
+            <li>
+              <p>-インターネットメディア事業</p>
+              <img src="./img/business02.jpg" alt="">
+            </li>
+          </ul>
+        </div>
+        <div class="column_right">
+          <ul>
+            <li>
+              <p>-プロモーション企画・制作</p>
+              <img src="./img/business03.jpg" alt="">
+            </li>
+            <li>
+              <p>-ソーシャル企画・運営</p>
+              <img src="./img/business04.jpg" alt="">
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="company" class="content_company">
+      <div class="group_company">
+        <div class="title_company">
+          <div class="title">
+            <h2>COMPANY</h2>
+            <p>企業紹介</p>
+          </div>
+          <div class="text_company">
+            <dl>
+              <div class="col">
+                <dt>会社名</dt>
+                <dd>ウェブエンターテイメントデザイン株式会社</dd>
+              </div>
+              <div class="col">
+                <dt>所在地</dt>
+                <dd>東京都渋谷区桜丘町99-9 West Building 3F
+                </dd>
+              </div>
+              <div class="col"> <!--dt/ddをうまく横並びにできなかったため、１区切りずつdivで囲って調整してしまいましたがもっとスマートな方法はありますでしょうか。-->
+                <dt>代表</dt>
+                <dd>×××××××××</dd>
+              </div>
+              <div class="col">
+                <dt>設立</dt>
+                <dd>2021年1月1日</dd>
+              </div>
+              <div class="col">
+                <dt>資本金</dt>
+                <dd>3,000,000円</dd>
+              </div>
+              <div class="col">
+                <dt>事業内容</dt>
+                <dd>Web制作・マーケテイング<br>インターネットメディア事業<br>プロモーション企画・制作
+                <br>ソーシャル企画・運営</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="img_company">
+          <img src="./img/company.jpg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <footer id="access" class="footer">
+      <div class="footer_top">
+        <div class="site_title">
+          <span>
+            <a href="">
+              <img src="./img/logo.svg" alt="access">
+            </a>
+          </span>
+        </div>
+          <ul>
+            <li>Web Entertainment Design Inc.</li>
+            <li>West Building 3F</li>
+            <li>9-99 Sakuragaokacho Shibuya-ku</li>
+            <li>Tokyo, Japan 150-0031</li>
+            <li>T/99-9999-9999</li>
+          </ul>
+      </div>
+      <p>&copy;Web Entertainment Design Inc.</p>
+    </footer>
+
+      
+
+  
+  </body>
+</html>

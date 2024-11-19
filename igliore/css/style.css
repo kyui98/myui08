@@ -1,0 +1,406 @@
+html {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 16px;
+}
+
+img {
+  width: 100%;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  max-width: 1366px;
+  height: 150px;
+}
+
+.top {
+  display: flex;
+  margin: auto;
+  align-items: center;
+}
+
+/*main*/
+.main {
+  width: 100%;
+  max-width: 1366px;
+}
+
+.list_pc {
+  display: flex;
+  margin: auto;
+  padding-bottom: 103px;
+  justify-content: center;/*センターラインをキープ*/
+  gap: 60px;
+  overflow-x: hidden;
+}
+
+.list_pc img {
+  margin: 0 auto;
+  display: flex;
+}
+
+.list_sp {
+  display: flex;
+  margin: auto;
+  padding-bottom: 103px;
+  display: none;
+}
+
+.list_sp img {
+  width: 100%;
+  display: block;
+}
+
+@media only screen and (max-width: 960px) {
+  .list_pc { 
+    display: none; 
+  }
+
+  .list_sp { 
+    display: block; 
+  }
+}
+/*concept*/
+.concept {
+  background-image: url(../img/pc/bg-top-concep.png);
+  color: #ffffff;
+  width: 100%;
+  max-width: 100%;/*max-widthを1366pxにすると横幅に余白ができてしまいます。*/
+  height: 839px;
+  align-items: center;
+  background-size: cover;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.concept h2 {
+  font-size: 24px;
+  letter-spacing: 0.12em;
+  padding-bottom: 35px;
+}
+
+.text {
+  line-height: 1.75;
+  text-align: center;
+}
+
+.item ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.item img {
+  margin: 150px 0;
+  width: 100%;
+}
+
+@media only screen and (max-width: 960px) {
+.concept { 
+  height: auto;
+}
+
+.concept h2 {
+  width: 70%;
+  margin: auto;
+  line-height: 1.75;
+}
+
+.group {
+  width: 90%;
+  margin: auto;
+}
+
+.item {
+  margin: 40px 40px 0 40px;
+  padding-bottom: 40px;
+}
+
+.item ul {
+  width: 90%;
+  margin: auto;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.item ul li {
+  width: 40%;
+}
+
+.item img {
+  margin: 0;
+  width: 100%;
+}
+}
+/*product*/
+.product {
+  background-color: #fdf5e6;
+  width: 100%;
+  max-width: 100%;/*max-widthを1366pxにすると横幅に余白ができてしまいます。*/
+  padding: 50px 0;
+}
+
+.product .img {
+  width: 50%;
+}
+
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.wrap_o {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.memo {
+  width: 50%;
+  margin: auto;
+}
+
+.memo h2 {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.memo p {
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.sidebar {
+  color: #ffffff;
+  background-color: #504333;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin: 40px 0;
+  line-height: 1.75;
+}
+
+.btn_instagram {
+  color: #000000;
+  font-size: 18px;
+  border-radius: 100px;
+  display: inline-block;
+  width: 270px;
+  line-height: 60px;
+  text-align: center;
+  transition: 0.3s;
+  background-color: #ffffff;
+}
+
+.note {
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  
+}
+
+@media only screen and (max-width: 960px) {
+.wrap {
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.wrap_o {
+  flex-direction: column;
+  width: 100%;
+  }
+
+  .memo {
+    width: 90%;
+    margin: auto;
+  }
+
+.memo a {
+  display: flex;
+  margin: auto;
+}
+
+.sidebar {
+  width: 90%;
+  margin: auto;
+  padding: 40px;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.wrap_o .img {
+  width: 100%;
+  margin: 0;
+}
+
+.wrap_o .img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+}
+
+/*showroom*/
+.showroom {
+  width: 100%;
+  max-width: 1080px;
+  margin: 50px auto ;
+}
+
+.showroom ul {
+  gap: 60px;
+  display: flex;
+  margin: auto;
+  padding: 50px 60px;
+
+}
+
+.showroom ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+}
+
+.showroom ul li p {
+  margin: 20px 0;
+}
+
+.more {
+  color: #ffffff;
+  padding: 100px 0;
+  margin-top: 35px;
+  background-image: url(../img/pc/bg-top-online-shop.png);
+  height: 414px;
+  background-position: ce;
+}
+
+.showroom .btn_shop {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+
+.btn_shop {
+  color: #ffffff;
+  border: solid 1px #ffffff;
+  font-size: 18px;
+  border-radius: 100px;
+  display: inline-block;
+  width: 270px;
+  line-height: 60px;
+  text-align: center;
+  transition: 0.3s;
+  background: transparent;
+}
+
+@media only screen and (max-width: 960px) {
+.showroom ul {
+  display: flex;
+  flex-wrap: nowrap;/*flex-direction: column;との使い分け*/
+  overflow-x: auto;
+  padding: 20px;
+  gap: 24px;
+}
+  
+.showroom ul li {
+  flex: 0 0 auto; 
+  width: 260px; 
+  margin-right: 10px;
+}
+  
+.showroom ul li:last-child {
+  margin-right: 0; 
+}
+}
+
+
+/*共通*/
+.btn {
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 100px;
+  display: inline-block;
+  width: 270px;
+  line-height: 60px;
+  text-align: center;
+  transition: 0.3s;
+  background-color: #504333;
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 30px;
+  letter-spacing: 0.23em;
+  padding: 35px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 960px) {
+.btn {
+flex-direction: column;
+justify-content: center;
+}
+}
+
+/*address*/
+.header {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  height: 150px;
+}
+
+.description {
+  line-height: 1.75;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.description h2 {
+  padding-top: 40px;
+}
+
+iframe {
+  width: 100%;
+  height: 360px;
+}
+
+/*footer*/
+footer {
+  background-color: #504333;
+  width: 100%;
+  height: 65px;
+  display: flex;
+}
+
+footer p {
+  margin: auto;
+  align-items: center;
+  color: #ffffff;
+}
+

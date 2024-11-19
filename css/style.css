@@ -1,0 +1,875 @@
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+}
+body {
+  color: #050507;
+  font-family: "LXGW WenKai TC", cursive;  
+  font-weight: 300;
+}
+a {
+  color: #050507;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+li {
+  list-style: none;
+}
+
+/* h1タグ用 */
+.site-title {
+  font-size: 6.25rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  margin: 100px 0;
+}
+/* h2タグ用 */
+.section-title {
+  font-family: "DynaPuff", system-ui;
+  border-bottom: solid 1px #bc8f8f;
+  /* 下線をテキストと同じ幅にあわせるために設定 */
+  display: inline-block;
+  font-size: 3.75rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  margin-bottom: 45px;
+}
+/* コンテンツ幅を設定するための共通クラス */
+.wrapper {
+  max-width: 800px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+/* MainとFooter全体を囲むクラス */
+.container {
+  background: #fff0f5;
+  color: #bc8f8f;
+  text-align: center;
+}
+
+/*
+サイドボタン
+初期状態は「translateY(60px);」で画面の右側に隠しておく
+Galleryのタイトルが画面下にきたタイミングで、jQueryでCSSを変更してボタンをスライドしながら表示する
+Accessのタイトルが画面下にきたタイミングで、jQueryでCSSを変更してボタンをスライドしながら非表示にする
+※main.jsの「サイドボタンを表示」を参照
+*/
+#side-btn {
+  border: solid 1px #bc8f8f;
+  position: fixed;
+  right: -144px;
+  bottom: 200px;
+  transform: rotate(-90deg) translateY(60px);
+  transition: 0.6s;
+  z-index: 30;
+}
+#side-btn a {
+  width: 165px;
+  font-size: 0.875rem;
+  display: inline-block;
+  letter-spacing: 0.1em;
+  padding: 15px 0;
+  transition: 0.3s;
+}
+#side-btn a:last-of-type {
+  border-left: solid 1px #fff;
+}
+#side-btn a:hover {
+  opacity: 0.7;
+}
+
+/*
+Accessの背景画像
+初期状態は「display: none;」で非表示にしておく
+Accessのタイトルが画面下にきたタイミングで、jQueryのfadeInで表示する
+Contactのタイトルが画面下にきたタイミングで、jQueryのfadeOutで非表示にする
+「position: fixed;」で固定し「width: 100vw;」「height: 100vh;」で全画面表示する
+※main.jsの「Accessの背景画像を表示」を参照
+*/
+.bg {
+  background: url("../img/bg.jpg") center center repeat !important;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 10;
+}
+
+/*
+フェード表示
+InformationとGalleryの画像を下からふわっと表示させるためのクラス
+「transform: translate(0, 50%);」で下にさげた状態で、
+「opacity: 0;」で非表示にしておく
+*/
+.fadein {
+  opacity: 0;
+  transform: translate(0, 50%);
+  transition: 2s;
+}
+/*
+fadeinクラスの要素が画面下にきたタイミングで、jQueryのinviewにてshowクラスを追加して
+「transform: translate(0, 0);」と「opacity: 1;」で表示させる
+※main.jsの「フェード表示」を参照
+*/
+.fadein.show {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+/*
+ヘッダーロゴ
+初期状態は「display: none;」で非表示にしておく
+所定のスクロール位置にきたらjQueryのfadeInで表示する
+※main.jsの「ロゴ、ハンバーガーメニューの表示」を参照
+*/
+.logo {
+  line-height: 1px;
+  position: fixed;
+  top: 35px;
+  left: 30px;
+  /* 一番上にくるように設定 */
+  z-index: 40;
+  display: none;
+}
+.logo a {
+  display: block;
+  color: #ffffff;
+  font-family: "DynaPuff", system-ui;
+}
+
+/*
+ハンバーガ―メニュー
+初期状態は「display: none;」で非表示にしておく
+所定のスクロール位置にきたらjQueryのfadeInで表示する
+※main.jsの「ロゴ、ハンバーガーメニューの表示」を参照
+*/
+.hamburger {
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  /* 一番上にくるように設定 */
+  z-index: 40;
+  display: none;
+}
+.hamburger span {
+  width: 30px;
+  height: 1px;
+  background-color: #bc8f8f;
+  position: absolute;
+  left: 6px;
+  transition: 0.5s ease-in-out;
+}
+.hamburger span:nth-child(1) {
+  top: 11px;
+}
+.hamburger span:nth-child(2) {
+  top: 21px;
+}
+.hamburger span:nth-child(3) {
+  top: 31px;
+}
+.hamburger.active span:nth-child(1) {
+  top: 21px;
+  left: 6px;
+  transform: rotate(-45deg);
+}
+.hamburger.active span:nth-child(2),
+.hamburger.active span:nth-child(3) {
+  top: 21px;
+  transform: rotate(45deg);
+}
+#nav {
+  width: 100%;
+  background-color: #bc8f8f;
+  color: #050507;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  transform: translateY(-100%);
+  transition: 0.6s;
+  /* ロゴ、ハンバーガーより下でAccessページの背景画像よりも上にくるよう設定 */
+  z-index: 30;
+}
+#nav ul {
+  width: 100%;
+  background-color: #e6e6fa;
+  padding: 80px 0 30px 0;
+}
+#nav ul li {
+  padding: 10px 0;
+}
+#nav ul li a {
+  display: block;
+}
+/*
+メニュー表示
+ハンバーガーメニューがクリックされた際に、jQueryで#navにactiveクラスを追加して、
+メニューを上から下にスライドさせて表示する
+*/
+#nav.active {
+  transform: translateY(0%);
+}
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+#mainvisual {
+  display: flex;
+  justify-content: center;
+  /* スクロールで画像を拡大させた際に、横スクロールが出ないよう設定 */
+  overflow-x: hidden;
+}
+/*
+スクロールしたタイミングでjQueryにて画像を拡大するが、
+その際に画像が縮まないよう「flex-shrink: 0;」を設定する
+*/
+#mainvisual img {
+  width: calc(100%/3);
+  height: 100vh;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/*-------------------------------------------
+Information
+-------------------------------------------*/
+#information {
+  margin-bottom: 140px;
+}
+#information .info-date-en {
+  display: block;
+  font-size: 1.5rem;
+}
+#information .info-time-en {
+  display: block;
+  font-size: 1.125rem;
+}
+#information .info-place {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 20px 0;
+}
+#information .info-date-ja {
+  font-size: 1.125rem;
+}
+
+/*-------------------------------------------
+Gallery
+-------------------------------------------*/
+#gallery {
+  margin-top: 40px;
+  margin-bottom: 200px;
+}
+#gallery .list li {
+  margin-bottom: 60px;
+}
+#gallery .list li img {
+  width: 48%;
+}
+/* 奇数のliタグは左寄せ */
+#gallery .list li:nth-child(odd) {
+  text-align: left;
+}
+/* 偶数のliタグは右寄せ */
+#gallery .list li:nth-child(even) {
+  text-align: right;
+}
+
+/*-------------------------------------------
+Access
+-------------------------------------------*/
+/*
+「z-index: 20;」でコンテンツが背景画像の上にくるようにする
+※デフォルトのposition（static）では、z-indexを指定できないため。
+「position: relative;」設定する
+*/
+#access {
+  margin-top: 40px;
+  margin-bottom: 480px;
+  position: relative;
+  z-index: 20;
+}
+#access .place {
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+#access .address {
+  margin-bottom: 20px;
+}
+#access .contact {
+  margin-bottom: 30px;
+}
+#access .btn {
+  border: solid 1px #bc8f8f;
+  color: #bc8f8f;
+  display: inline-block;
+  padding: 15px 82px;
+  transition: 0.3s;
+}
+#access .btn:hover {
+  background-color: #050507;
+}
+
+/*-------------------------------------------
+Contact
+-------------------------------------------*/
+/*
+「z-index: 20;」でコンテンツが背景画像の上にくるようにする
+*/
+#contact {
+  margin-bottom: 200px;
+  position: relative;
+  z-index: 20;
+}
+#contact .btn {
+  width: 400px;
+  border: solid 1px #7d7d7d;
+  color: #bc8f8f;
+  display: block;
+  padding: 30px 0;
+  margin: 0 auto 20px auto;
+  position: relative;
+  transition: 0.3s;
+}
+/*
+ボタン矢印
+*/
+#contact .btn::before,
+#contact .btn::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  height: 1px;
+  background-color: #bc8f8f;
+  transition: 0.3s;
+}
+/*
+矢印の直線部分
+*/
+#contact .btn::before {
+  width: 120px;
+  top: 48px;
+}
+/*
+矢印の先端部分
+「rotate(25deg)」で角度をつける
+*/
+#contact .btn::after {
+  width: 15px;
+  top: 45px;
+  transform: rotate(25deg);
+}
+#contact .btn:hover {
+  opacity: 0.7;
+}
+#contact .btn:hover::before,
+#contact .btn:hover::after {
+  right: -50px;
+}
+
+/*-------------------------------------------
+Footer
+-------------------------------------------*/
+#footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: solid 1px #bc8f8f;
+  font-size: 0.75rem;
+  padding: 80px 30px;
+  text-align: left;
+}
+#footer p {
+  line-height: 1.6;
+}
+#footer .sns {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+#footer .sns li {
+  margin-right: 15px;
+}
+#footer .copyright {
+  display: flex;
+  align-items: center;
+}
+#footer .copyright li:last-child {
+  margin-left: 30px;
+}
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 900px) {
+  .site-title {
+    font-size: 3rem;
+    margin: 50px 0;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /*-------------------------------------------
+  Information
+  -------------------------------------------*/
+  #information {
+    margin-bottom: 80px;
+  }
+  #information .info-date-en,
+  #information .info-time-en,
+  #information .info-date-ja {
+    font-size: 1rem;
+  }
+  #information .info-place {
+    font-size: 2rem;
+  }
+
+  /*-------------------------------------------
+  Gallery
+  -------------------------------------------*/
+  #gallery {
+    margin-bottom: 280px;
+  }
+  #gallery .list li {
+    margin-bottom: 30px;
+  }
+  #gallery .list li img {
+    width: 100%;
+  }
+
+  /*-------------------------------------------
+  Access
+  -------------------------------------------*/
+  #access {
+    margin-bottom: 280px;
+  }
+
+  /*-------------------------------------------
+  Contact
+  -------------------------------------------*/
+  #contact .btn {
+    width: 100%;
+  }
+  /*
+  スマホの時は矢印を消す
+  */
+  #contact .btn::before,
+  #contact .btn::after {
+    content: none;
+  }
+
+  /*-------------------------------------------
+  Footer
+  -------------------------------------------*/
+  #footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 30px;
+  }
+  #footer .sns {
+    margin-bottom: 30px;
+  }
+}
+
+body {
+  background-color: #efeded;
+  color: #35383a;
+  /*font-family: 'Noto Serif JP', serif;*/
+}
+a {
+  color: #35383a;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+
+/*
+【要素の重ね合わせ（親要素）】
+positionで要素を重ね合わせると高さがなくなるので、
+高さを残したい場合は親要素で「height」を指定。
+*/
+.content {
+  max-width: 1000px;
+  height: 698px;
+  margin: 70px auto;
+  position: relative;
+}
+/*
+【要素の重ね合わせ（子要素）】
+「position: absolute;」と「left」で左に配置。
+*/
+.text {
+  max-width: 680px;
+  background-color: #fff;
+  padding: 84px 160px 84px 84px;
+  position: absolute;
+  left: 0;
+}
+.text p {
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+/*
+「display: inline-block;」で下線をテキスト幅に合わせる。
+*/
+.text .title {
+  border-bottom: solid 1px #35383a;
+  display: inline-block;
+  font-size: 1.875rem;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+.text .large {
+  font-size: 1.875rem;
+}
+/*
+「display: inline-block;」でボタンをテキスト幅に合わせてから
+paddingでサイズを調整。
+「transition」で、ホバーをふわっとさせる。
+（※transitionの詳細については調べてみてくださいね。）
+*/
+
+.list .btn {
+  display: inline-block;
+  border: solid 1px #35383a;
+  border-radius: 30px;
+  padding: 16px 50px;
+  transition: all 0.3s ease;
+}
+.list .btn:hover {
+  background-color: #efeded;
+}
+
+.text .btn {
+  display: inline-block;
+  border: solid 1px #35383a;
+  border-radius: 30px;
+  padding: 16px 50px;
+  transition: all 0.3s ease;
+}
+.text .btn:hover {
+  background-color: #efeded;
+}
+/*
+【要素の重ね合わせ（子要素）】
+「position: absolute;」と「top」「right」で、
+親要素の上から140px、右から20pxに配置。
+*/
+.img {
+  max-width: 400px;
+  position: absolute;
+  top: 140px;
+  right: 20px;
+}
+/*
+「vertical-align: bottom;」で、画像の下の隙間を消す。
+「top」を指定してもOK。
+（※画像の下の隙間を消す方法は、実務でもよく使うので
+覚えておいてください。）
+*/
+.img img {
+  vertical-align: bottom;
+}
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 1000px) {
+  /*
+  スマホ時はテキストエリアと画像を縦に並べるので、
+  「position: static;」で位置の固定を解除する。
+  「height: auto;」で高さの固定も解除する。
+  */
+  .content {
+    width: 90%;
+    height: auto;
+    position: static;
+    margin: 0 auto;
+  }
+  .text {
+    max-width: 100%;
+    padding: 60px 20px;
+    position: static;
+  }
+  .img {
+    display:  none;
+  }
+}
+
+/**/
+li {
+  list-style: none;
+}
+
+.article {
+  max-width: 900px;
+  padding: 80px 20px;
+  margin: 0 auto;
+}
+
+/*
+セクションタイトル用の共通クラス
+両サイドの線は疑似要素で作成して、Flexboxで横並びに配置
+※beforeが左の線、afterが右の線
+*/
+.sec-title_a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.75rem;
+  margin-bottom: 60px;
+  text-align: center;
+}
+.sec-title_a::before,
+.sec-title_a::after {
+  border-top: 1px solid;
+  content: "";
+  width: 28%;
+}
+
+/*-------------------------------------------
+Flow
+-------------------------------------------*/
+#flow {
+  background-color: #fff;
+  padding-top: 40px;
+}
+#flow .step {
+  display: flex;
+  margin-top: 60px;
+}
+#flow .figure {
+  position: relative;
+}
+/* 図形下の黄色い棒線を作成 */
+#flow .figure::before {
+  content: "";
+  width: 50px;
+  height: 600px;
+  background-color: #f0e68c;
+  position: absolute;
+  top: 0;
+  left: 75px;
+}
+/*
+図形の四角部分を作成
+*/
+#flow .figure li {
+  width: 200px;
+  height: 80px;
+  line-height: 80px;
+  background-color: #bc8f8f;
+  color: #fff;
+  font-size: 0.875rem;
+  margin-bottom: 60px;
+  position: relative;
+  text-align:center;
+}
+/*
+図形の三角部分を疑似要素で作成
+「position」を使用して、四角の下に配置
+*/
+#flow .figure li::before {
+  content: "";
+  border-top: 30px solid #bc8f8f;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
+#flow .figure li:last-child {
+  margin-bottom: 0;
+}
+#flow .description {
+  margin-left: 10%;
+}
+#flow .description dt {
+  border-bottom: solid 1px #121212;
+  font-size: 1.25rem;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  position: relative;
+}
+/*
+丸数字を作成
+「position」を使用して、タイトルの左側に配置
+*/
+#flow .description dt span {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  background-color: #bc8f8f;
+  border-radius: 50%;
+  color: #fff;
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: -45px;
+}
+#flow .description dd {
+  margin-bottom: 43px;
+}
+#flow .description dd:last-child {
+  margin-bottom: 0;
+}
+
+/*-------------------------------------------
+Feature
+-------------------------------------------*/
+.feature {
+  max-width: 1240px;
+  padding: 100px 16px 50px 16px;
+  margin: -50px auto 10px auto;
+}
+/*
+グリッドレイアウト
+要素の最小サイズは300pxで、画面の幅にあわせて要素の幅が自動で変化する
+repeatで全ての要素に対して適用
+「gap: 26px;」で行と列の隙間を設定
+*/
+.feature .grid {
+  margin-top: 50px;
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.feature .grid .item {
+  transition: all  0.3s ease;
+  box-shadow: 0 0 8px 4px #ccc;
+}
+.feature .grid img {
+  vertical-align: top;
+}
+.feature .grid .item-content {
+  padding: 30px;
+}
+.feature .grid .item-cat {
+  font-size: 0.75rem;
+  margin-bottom: 20px;
+}
+.feature .grid .item-text {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.feature .grid .item-date {
+  font-size: 0.75rem;
+  text-align: right;
+}
+.sec-title {
+  font-size: 2.25rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.fadein {
+  opacity : 0;
+  transform: translateY(50px);
+  transition: all 1s;
+}
+
+.fadein.show {
+  opacity: 1;
+  transform: translateY(0); /* 元の位置に戻る */
+}
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 960px) {
+  .article {
+    padding: 60px 20px;
+  }
+  .sec-title {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+  }
+  .sec-title_a::before,
+  .sec-title_a::after {
+    width: 18%;
+  }
+
+  /*-------------------------------------------
+  ヘッダー
+  -------------------------------------------*/
+  #header {
+    width: 100%;
+    height: 72px;
+    padding: 0;
+    z-index: 10;
+  }
+
+  /*-------------------------------------------
+  Flow
+  -------------------------------------------*/
+  #flow {
+    padding-top: 0;
+  }
+  #flow .step {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+  #flow .figure {
+    margin-bottom: 80px;
+  }
+  /*
+  図形下の黄色い棒線を中央に配置
+  */
+  #flow .figure::before {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  /*
+  図形（四角部分）の横幅を、画面幅から80pxマイナスしてサイズを調整
+  ※80pxは任意の数値ですので、図形をもっと小さくして横の余白とりたい場合は、
+  ここの数値を大きくする等して調整が可能です。
+  */
+  #flow .figure li {
+    width: calc(100vw - 80px);
+  }
+  /*
+  図形（三角部分）の横幅を設定
+  ※上記同様、図形のサイズにあわせて調整を行う
+  */
+  #flow .figure li::before {
+    border-left: calc(50vw - 40px) solid transparent;
+    border-right: calc(50vw - 40px) solid transparent;
+  }
+  #flow .description {
+    margin-left: 50px;
+  }
+
+    /*-------------------------------------------
+  Feature
+  -------------------------------------------*/
+  .feature {
+    padding: 80px 16px;
+  }
+  .feature .grid .item-content {
+    padding: 16px;
+  }
+
+
+}
