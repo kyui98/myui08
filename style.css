@@ -207,7 +207,7 @@ fadeinクラスの要素が画面下にきたタイミングで、jQueryのinvie
 }
 #nav ul {
   width: 100%;
-  background-color: #e6e6fa;
+  background-color: #fdf5e6;
   padding: 80px 0 30px 0;
 }
 #nav ul li {
@@ -664,7 +664,7 @@ Flow
   content: "";
   width: 50px;
   height: 600px;
-  background-color: #f0e68c;
+  background-color: #fdf5e6;
   position: absolute;
   top: 0;
   left: 75px;
