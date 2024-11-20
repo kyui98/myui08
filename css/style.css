@@ -109,8 +109,10 @@ InformationとGalleryの画像を下からふわっと表示させるための�
 */
 .fadein {
   opacity: 0;
-  transform: translate(0, 50%);
-  transition: 2s;
+  transform: translateY(20px);
+  transition: 0.8s;
+  transition-delay: 0.5s;
+  
 }
 /*
 fadeinクラスの要素が画面下にきたタイミングで、jQueryのinviewにてshowクラスを追加して
@@ -118,7 +120,7 @@ fadeinクラスの要素が画面下にきたタイミングで、jQueryのinvie
 ※main.jsの「フェード表示」を参照
 */
 .fadein.show {
-  transform: translate(0, 0);
+  transform: translateY(0px); 
   opacity: 1;
 }
 
@@ -205,7 +207,7 @@ fadeinクラスの要素が画面下にきたタイミングで、jQueryのinvie
 }
 #nav ul {
   width: 100%;
-  background-color: #e6e6fa;
+  background-color: #fdf5e6;
   padding: 80px 0 30px 0;
 }
 #nav ul li {
@@ -662,7 +664,7 @@ Flow
   content: "";
   width: 50px;
   height: 600px;
-  background-color: #f0e68c;
+  background-color: #fdf5e6;
   position: absolute;
   top: 0;
   left: 75px;
@@ -847,19 +849,36 @@ SP
   ここの数値を大きくする等して調整が可能です。
   */
   #flow .figure li {
-    width: calc(100vw - 80px);
+    width: calc(80vw - 60px);
   }
   /*
   図形（三角部分）の横幅を設定
   ※上記同様、図形のサイズにあわせて調整を行う
   */
   #flow .figure li::before {
-    border-left: calc(50vw - 40px) solid transparent;
-    border-right: calc(50vw - 40px) solid transparent;
+    border-left: calc(40vw - 40px) solid transparent;
+    border-right: calc(40vw - 40px) solid transparent;
   }
-  #flow .description {
-    margin-left: 50px;
-  }
+#flow .description {
+ display: none;
+}
+#flow .description dt {
+ display: none;
+}
+/*
+丸数字を作成
+「position」を使用して、タイトルの左側に配置
+*/
+#flow .description dt span {
+ display: none;
+}
+#flow .description dd {
+  display: none;
+}
+#flow .description dd:last-child {
+  display: none;
+}
+
 
     /*-------------------------------------------
   Feature
