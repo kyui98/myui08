@@ -5,7 +5,7 @@ html {
 }
 body {
   color: #050507;
-  font-family: "LXGW WenKai TC", cursive;  
+  font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 300;
 }
 a {
@@ -80,6 +80,7 @@ Accessのタイトルが画面下にきたタイミングで、jQueryでCSSを�
 }
 #side-btn a:hover {
   opacity: 0.7;
+ 
 }
 
 /*
@@ -491,7 +492,6 @@ SP
 body {
   background-color: #efeded;
   color: #35383a;
-  /*font-family: 'Noto Serif JP', serif;*/
 }
 a {
   color: #35383a;
@@ -859,26 +859,9 @@ SP
     border-left: calc(40vw - 40px) solid transparent;
     border-right: calc(40vw - 40px) solid transparent;
   }
-#flow .description {
- display: none;
-}
-#flow .description dt {
- display: none;
-}
-/*
-丸数字を作成
-「position」を使用して、タイトルの左側に配置
-*/
-#flow .description dt span {
- display: none;
-}
-#flow .description dd {
-  display: none;
-}
-#flow .description dd:last-child {
-  display: none;
-}
-
+  #flow .description {
+    margin-left: 50px;
+  }
 
     /*-------------------------------------------
   Feature
