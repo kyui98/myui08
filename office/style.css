@@ -3,7 +3,7 @@
 /*header*/
 header {
   color: #ffffff;
-  display: flex; 
+  display: flex;
   justify-content: space-between;
   height: 70px;
   background-color: #b1adad;
@@ -280,6 +280,9 @@ main img {
 
 /*company*/
 .content_company {
+  width: 90%;
+  margin: o auto;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center; 
@@ -295,6 +298,8 @@ main img {
 
 
 .title_company {
+  width: 100%;
+  max-width: 100%;
   margin-right: -100px;
   background-color: #dcdcdc;
   padding: 100px 130px 100px 62px;
