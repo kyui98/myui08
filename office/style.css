@@ -3,7 +3,7 @@
 /*header*/
 header {
   color: #ffffff;
-  display: flex;
+  display: flex; 
   justify-content: space-between;
   height: 70px;
   background-color: #b1adad;
